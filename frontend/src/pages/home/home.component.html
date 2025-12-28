@@ -1,0 +1,79 @@
+<div class="container">
+  <header>
+    <h1>SEO Salience Score Keyword Extraction Tool</h1>
+    <div class="user-info" *ngIf="user?.name">
+      <span>Welcome, {{ user.name }}</span>
+      <button class="btn-logout" (click)="logout()">Logout</button>
+    </div>
+  </header>
+
+  <section class="billing">
+    <div *ngIf="user?.isRegistered" class="billing-info">
+      <p>Your billing is set up</p>
+      <button class="btn-update" (click)="updateAccountInfo()">Update Account Info</button>
+    </div>
+    <app-payments 
+      *ngIf="!user?.isRegistered" 
+      [tokenSub]="token?.sub" 
+      [userProfile]="user">
+    </app-payments>
+  </section>
+
+  <section class="keyword-extractor">
+    <textarea 
+      [(ngModel)]="inputText" 
+      (input)="onInputChange($event)"
+      placeholder="Paste your content here..." 
+      rows="6">
+    </textarea>
+    <button 
+      class="btn-primary" 
+      (click)="extractKeywords()" 
+      [disabled]="isLoading">
+      Extract Keywords
+    </button>
+
+    <div *ngIf="isLoading" class="loading">Extracting keywords...</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  </section>
+
+  <section class="keywords-table" *ngIf="keywords.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <th>Keyword</th>
+          <th>Type</th>
+          <th>Salience</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let keyword of keywords">
+          <td>{{ keyword.name }}</td>
+          <td>{{ keyword.type }}</td>
+          <td>{{ keyword.salience | number: '1.2-2' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section *ngIf="devMode" class="dev-info">
+    <p>Dev Mode:</p>
+    <span>usageLimitReached: {{ usageLimitReached }}</span>
+    <br />
+    <pre>{{ user | json }}</pre>
+  </section>
+</div>
+<div class="container">
+  <!-- Existing Content -->
+
+  <!-- Help & Support Section -->
+  <footer class="help-support">
+    <h2>Need Help?</h2>
+    <p>If you have any questions, need assistance, or want to suggest improvements, feel free to reach out to us:</p>
+    <ul>
+      <!-- <li>Email: <a href="mailto:support@keywordextractor.com">support@keywordextractor.com</a></li> -->
+      <li>Phone: <a href="tel:+1234567890">+1 (267) 410-2791</a></li>
+      <p>Suggest an Improvement at: entityapigmail.com</p>
+    </ul>
+  </footer>
+</div>

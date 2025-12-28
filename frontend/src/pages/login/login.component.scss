@@ -1,0 +1,72 @@
+/* Ensure full-page layout */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Roboto', Arial, sans-serif;
+    background: linear-gradient(135deg, #2e2f30, #1f2f25); /* Dark grey to dark green */
+    color: #e8eae6; /* Soft off-white */
+  }
+  
+  /* Center the container */
+  .page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    background-color: darkgray;
+  }
+  
+  /* Container styling */
+  .container {
+    background: #2b2c2d; /* Dark grey */
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Deeper shadow for depth */
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #4a5049; /* Subtle border with dark green-gray */
+  }
+  
+  /* Typography styles */
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #a8d5ba; /* Soft green */
+  }
+  
+  p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+    color: #c0c5c3; /* Light grey */
+  }
+  
+  /* Button styling */
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    color: #ffffff;
+    background: #3b6d52; /* Dark green */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .btn:hover {
+    background: #4f8a6c; /* Lighter green on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  /* Footer styling */
+  footer {
+    margin-top: 1.5rem;
+    font-size: 0.875rem;
+    color: #a3a8a5; /* Muted light gray */
+  }
+  

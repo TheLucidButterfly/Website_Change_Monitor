@@ -1,0 +1,5 @@
+# Redirect from / to /login
+/    /login    301!
+
+# Serve index.html for all other routes (needed for Angular app routing)
+*/index.html    200
